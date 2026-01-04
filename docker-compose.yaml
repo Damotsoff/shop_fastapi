@@ -1,0 +1,9 @@
+services:
+  web:
+    build:
+      context: .
+    ports:
+      - 8000:8000
+    volumes:
+      - /mnt/c/Users/user/Documents/projects/shop_fastapi/:/app
+    command: python main.py
