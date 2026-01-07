@@ -3,7 +3,8 @@ from pydantic import BaseModel
 from pathlib import Path
 
 BASE_DIR = Path(__file__).parent.parent
-DB_PATH = BASE_DIR/"db.sqlite3"
+DB_PATH = BASE_DIR / "db.sqlite3"
+
 
 class DbSettings(BaseModel):
     url: str = f"sqlite+aiosqlite:///{DB_PATH}"
@@ -13,7 +14,6 @@ class DbSettings(BaseModel):
 class Setting(BaseSettings):
     api_prefix: str = "/api/v1"
     db: DbSettings = DbSettings()
-   
 
 
 settings = Setting()
