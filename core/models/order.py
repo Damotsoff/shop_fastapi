@@ -20,6 +20,6 @@ class Order(Base):
         secondary="order_product_association",
         back_populates="orders",
     )
-    products_details: Mapped[list["OrderProductAssociation"]] = relationship(
+    product_details: Mapped[list["OrderProductAssociation"]] = relationship(
         back_populates="order"
     )
