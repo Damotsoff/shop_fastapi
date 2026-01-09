@@ -12,9 +12,9 @@ __all__ = (
 
 from .base import Base
 from .database_helper import DatabaseHelper, db_helper
-from .product import Product
-from .user import User
-from .post import Post
-from .profile import Profile
 from .order import Order
 from .order_product_association import OrderProductAssociation
+from .post import Post
+from .product import Product
+from .profile import Profile
+from .user import User
