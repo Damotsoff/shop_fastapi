@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 
 
 class OrderProductAssociation(Base):
-    __tablename__ = "order_product_association"
+    __tablename__ = "order_product_association" # type: ignore
     __table_args__ = (
         UniqueConstraint("order_id", "product_id", name="idx_unique_order_product"),
     )
