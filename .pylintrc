@@ -1,0 +1,15 @@
+[MASTER]
+extension-pkg-allow-list=pydantic
+ignore-paths=^venv/,^alembic/,^__pycache__/,^\.git/
+
+[MESSAGES CONTROL]
+disable=
+    missing-module-docstring,
+    missing-class-docstring,
+    missing-function-docstring,
+    too-few-public-methods,
+    no-self-argument,
+    not-callable,
+
+[FORMAT]
+max-line-length=120
