@@ -31,5 +31,9 @@ jobs:
       - name: Run pylint
         run: |
           poetry run pylint ./
+      
+      - name: Run isort
+        run: |
+          poetry run isort --check-only ./
 
       
