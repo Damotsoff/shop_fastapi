@@ -2,8 +2,7 @@ from sqlalchemy import select
 from sqlalchemy.engine import Result
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from api_v1.products.schemas import (ProductCreate, ProductUpdate,
-                                     ProductUpdatePartial)
+from api_v1.products.schemas import ProductCreate, ProductUpdate, ProductUpdatePartial
 from core.models import Product
 
 
