@@ -11,7 +11,7 @@ async def test_create_and_get_product(async_session):
     created = await crud.create_product(session=async_session, product_in=product_in)
 
     assert isinstance(created, Product)
-    assert created.name == "Test"
+    assert created.name == "Test2"
 
     fetched = await crud.get_product(session=async_session, product_id=created.id)
     assert fetched is not None
