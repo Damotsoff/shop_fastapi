@@ -1,12 +1,12 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from core.models import Product as ProductModel
 from core.models import db_helper
 
 from . import crud
 from .dependencies import product_by_id
-from .schemas import (Product, ProductCreate, ProductUpdate,
-                      ProductUpdatePartial)
+from .schemas import Product, ProductCreate, ProductUpdate, ProductUpdatePartial
 
 router = APIRouter(tags=["Products"])
 
@@ -38,7 +38,7 @@ async def create_product(
 @router.put("/{product_id}/")
 async def update_product(
     product_update: ProductUpdate,
-    product: Product = Depends(product_by_id),
+    product: ProductModel = Depends(product_by_id),
     session: AsyncSession = Depends(db_helper.scoped_session_dependency),
 ):
     return await crud.update_product(
@@ -51,7 +51,7 @@ async def update_product(
 @router.patch("/{product_id}/")
 async def update_product_partial(
     product_update: ProductUpdatePartial,
-    product: Product = Depends(product_by_id),
+    product: ProductModel = Depends(product_by_id),
     session: AsyncSession = Depends(db_helper.scoped_session_dependency),
 ):
     return await crud.update_product(
@@ -61,7 +61,7 @@ async def update_product_partial(
 
 @router.delete("/{product_id}/", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_product(
-    product: Product = Depends(product_by_id),
+    product: ProductModel = Depends(product_by_id),
     session: AsyncSession = Depends(db_helper.scoped_session_dependency),
 ):
     await crud.delete_product(session=session, product=product)
