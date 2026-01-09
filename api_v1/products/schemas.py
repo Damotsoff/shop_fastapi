@@ -15,7 +15,7 @@ class ProductUpdate(ProductCreate):
     pass
 
 
-class ProductUpdatePartial(ProductCreate):
+class ProductUpdatePartial(BaseModel):
     name: str | None = None
     description: str | None = None
     price: int | None = None
