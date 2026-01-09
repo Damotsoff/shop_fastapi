@@ -8,12 +8,7 @@ from core.config import settings
 from users.views import router as users_router
 
 
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    yield
-
-
-app = FastAPI(lifespan=lifespan)
+app = FastAPI()
 app.include_router(router=router_v1, prefix=settings.api_prefix)
 app.include_router(users_router)
 
