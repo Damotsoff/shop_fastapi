@@ -1,4 +1,5 @@
 """Pytest fixtures for async tests."""
+
 # pylint: disable=wrong-import-position,redefined-outer-name,unused-import
 import asyncio
 import sys
@@ -42,9 +43,13 @@ async def async_engine() -> AsyncGenerator[AsyncEngine, None]:
 
 
 @pytest_asyncio.fixture()
-async def async_session(async_engine: AsyncEngine) -> AsyncGenerator[AsyncSession, None]:
+async def async_session(
+    async_engine: AsyncEngine,
+) -> AsyncGenerator[AsyncSession, None]:
     """Provide a transactional scope around a test and rollback at the end."""
-    async_session_factory = async_sessionmaker(bind=async_engine, expire_on_commit=False)
+    async_session_factory = async_sessionmaker(
+        bind=async_engine, expire_on_commit=False
+    )
 
     async with async_session_factory() as session:
         yield session
